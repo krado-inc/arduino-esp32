@@ -211,7 +211,7 @@ bool btInUse(){ return false; }
 
 void initArduino()
 {
-#ifdef CONFIG_APP_ROLLBACK_ENABLE
+#if defined CONFIG_APP_ROLLBACK_ENABLE && defined CONFIG_APP_ARDUINO_ROLLBACK_ENABLE
     const esp_partition_t *running = esp_ota_get_running_partition();
     esp_ota_img_states_t ota_state;
     if (esp_ota_get_state_partition(running, &ota_state) == ESP_OK) {
